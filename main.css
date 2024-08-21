@@ -1,0 +1,68 @@
+/* Style inputs */
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 8px;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    margin-left: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+
+  body {
+    background-color: lightgray
+    ;
+  }
+
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+}
+
+li{
+    float: left
+}
+
+li a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;  
+}
+
+.column.side {
+    width: 20%;
+    background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(46, 46, 46) 100%);
+    height: 1050px;
+    opacity: 80%;
+}
+
+.column.middle{
+    width: 80%;
+}
+
+
+/* Clear floats after the columns */
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
