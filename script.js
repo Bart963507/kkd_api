@@ -4,11 +4,26 @@ document.getElementById("playerForm").addEventListener("submit", function(event)
     generateInputs("playerForm"); // Call your function
 });
 
-const generateInputs = function(ele){
+function generateInputs(ele){
     let aantalSpelers = document.getElementById(ele)[0].value
     const targetContainer = document.getElementById("playerNames")
-    targetWidth = (targetContainer.getBoundingClientRect().width)*0.9
-    targetMargin = (targetContainer.getBoundingClientRect().width)*0.05
+    const targetContainerWidth = targetContainer.getBoundingClientRect().width
+    targetWidth = targetContainerWidth*0.9
+    targetMargin = targetContainerWidth*0.05
+
+
+function configurePlayerName(element, { aantalSpelers, targetWidth, targetMargin }) {
+    Object.assign(element, {
+        type: "text",
+        name: `playername${aantalSpelers}`,
+        });
+     Object.assign(element.style, {
+        width: `${targetWidth}px`,
+        marginLeft: `${targetMargin}px`,
+        marginRight: `${targetMargin}px`
+        });
+}
+
 
 
     while (parseInt(aantalSpelers) > 0){
@@ -19,11 +34,7 @@ const generateInputs = function(ele){
 
 
         const playerName = document.createElement("input");
-        playerName.type = "text";
-        playerName.name = `playername${aantalSpelers}`;
-        playerName.style.width = `${targetWidth}px`
-        playerName.style.marginLeft = `${targetMargin}px`
-        playerName.style.marginRight = `${targetMargin}px`
+        configurePlayerName(playerName, { aantalSpelers, targetWidth, targetMargin });
         
 
         playerInputContainer.appendChild(playerName);
