@@ -1,11 +1,8 @@
 /* Style inputs */
 input[type=text], select {
-    width: 100%;
     padding: 12px 20px;
     margin-top: 8px;
-    margin-right: 5px;
     margin-bottom: 8px;
-    margin-left: 5px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
