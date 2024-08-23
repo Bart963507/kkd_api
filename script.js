@@ -48,17 +48,43 @@ function configurePlayerName(element, { aantalSpelers, targetWidth, targetMargin
     }
 
     confirmButtonContainer = document.createElement("div")
-    confirmButton = document.createElement("BUTTON")
+    confirmButton = document.createElement("input")
+    confirmButton.type = "submit"
+    confirmButton.value = "Submit"
+    confirmButton.style.marginLeft = `${targetMargin}px`
 
     confirmButton.addEventListener("submit", function(event) {
         event.preventDefault()}); // Prevents the form from submitting
-    confirmButton.value = "Submit"
-    confirmButton.name = "SUBMIT"
-    confirmButton.type = "submit"
+
 
     confirmButtonContainer.appendChild(confirmButton)
     targetContainer.append(confirmButtonContainer)
 
 }
+
+
+
+const request = new Request("https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/current-round")
+
+fetch(request)
+  .then((response) => response.json())
+  .then((json) => {
+    console.log(json.matches)
+// Maak dit nog dynamisch met date.now()
+    json.matches.forEach((match) => {
+        if (match.date === "2024-08-23"){
+            console.log(match.date)
+            const imgAway = document.createElement("IMG")
+            imgAway.src = match.awayContestant.contestantLogo
+            const imgHome = document.createElement("IMG")
+            imgHome.src = match.homeContestant.contestantLogo
+            document.getElementById("matchesDiv").appendChild(imgHome);
+            document.getElementById("matchesDiv").appendChild(imgAway);
+        }
+    })
+
+
+    
+  });
 
 
