@@ -72,5 +72,35 @@ li a:hover {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 16px;a6
+  }
+
+
+.flex-container {
+    display: flex;
+    background-color: DodgerBlue;
+    /*flex-direction: column;*/
+  }
+
+.flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+
+  .first-child {
+    width: 100%; /* Take full width */
+    margin-bottom: 10px; /* Adds some spacing below the first child */
+  }
+  
+  .children-container {
+    display: flex; /* Display children in a row */
+    flex-wrap: wrap; /* Ensure children can wrap if they exceed the width */
+    gap: 10px; /* Adds spacing between children */
+  }
+  
+  .child {
+    display: block; /* Each child is a block element */
+    /* Additional styling as needed */
   }
