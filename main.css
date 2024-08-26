@@ -90,17 +90,17 @@ li a:hover {
   }
 
   .first-child {
-    width: 100%; /* Take full width */
-    margin-bottom: 10px; /* Adds some spacing below the first child */
+    width: 20%; /* Take full width */
   }
   
   .children-container {
     display: flex; /* Display children in a row */
     flex-wrap: wrap; /* Ensure children can wrap if they exceed the width */
-    gap: 10px; /* Adds spacing between children */
+    
+
   }
   
   .child {
     display: block; /* Each child is a block element */
-    /* Additional styling as needed */
+    margin-right: 30px;
   }
