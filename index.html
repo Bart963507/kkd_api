@@ -4,32 +4,33 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
-<nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Our team</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
-
 <body>
 <script src ="getTeams.js" defer></script>
+<script src ="getGameInformation.js" defer></script>
 <script src ="script.js" defer></script>
 
 
-<form id="playerForm">
-    <label for="aantalSpelers">Hoeveel spelers doen er mee?</label><br>
-    <input type="number"><br>
-    <input type="submit" value="Submit">
-</form>
-
-<form id = "playerNames" class = "column side"> 
-</form>
-
-<div id = "matchesDiv" class = "column middle">
-    
+ <!-- Page 1: User Information Form -->
+ <div class="container" id="page1">
+    <h2>Spel informatie</h2>
+    <form id="formGame">
+        <div class="form-group">
+            <label for="playerCount">Aantal Spelers:</label>
+            <input type="number" id="playerCount" name="playerCount" required>
+        </div>
+        <div class="form-group">
+            <label for="teamCount">Aantal Teams per Speler:</label>
+            <input type="number" id="teamCount" name="teamCount" required>
+        </div>
+        <button type="button" class="btn" id="Volgende">Volgende</button>
+    </form>
 </div>
 
+<div class="container" id="page2">
+    <h2>Spelers informatie</h2>
+    <form id="formPlayers">
+        <button type="button" class="btn" id="startSpel">Start Spel</button>
+    </form>
+</div>
 </body>
 </html> 
