@@ -1,7 +1,16 @@
 getTeams("https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/current-round")
 
+const btnVolgende= document.getElementById("Volgende")
+console.log(btnVolgende)
+btnVolgende.addEventListener("click",getGameInformation)
 
 
+//setElementVisibility("page1", "page2")
+
+
+
+
+/*
 document.getElementById("playerForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevents the form from submitting
     generateInputs("playerForm"); // Call your function
@@ -93,3 +102,6 @@ function getPlayerNames(formID) {
     
 
 }
+*/
+
+

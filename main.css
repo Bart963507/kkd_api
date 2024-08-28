@@ -34,10 +34,6 @@ label {
   font-weight: bold;
 }
 
-#page1 {
-  visibility: hidden;
-}
-
 
 input[type="text"],
 input[type="number"],
