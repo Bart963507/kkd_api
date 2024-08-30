@@ -15,7 +15,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 90%;
-  max-width: 400px;
+  max-width: 800px;
 }
 
 h2 {
@@ -67,32 +67,30 @@ textarea {
   background-color: #45a049;
 }
 
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-.flex-container {
-    display: flex;
-    background-color: DodgerBlue;
-    /*flex-direction: column;*/
-  }
+thead, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
 
-.flex-container > div {
+thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:hover {
     background-color: #f1f1f1;
-    margin: 10px;
-    padding: 20px;
-    font-size: 30px;
-  }
+}
 
-  .first-child {
-    width: 20%; /* Take full width */
-  }
-  
-  .children-container {
-    display: flex; /* Display children in a row */
-    flex-wrap: wrap; /* Ensure children can wrap if they exceed the width */
-    
-
-  }
-  
-  .child {
-    display: block; /* Each child is a block element */
-    margin-right: 30px;
-  }
+h1 {
+  text-align: center;
+  color: #333;
+}

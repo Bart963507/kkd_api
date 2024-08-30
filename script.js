@@ -1,8 +1,12 @@
-getTeams("https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/current-round")
+
 
 const btnVolgende= document.getElementById("Volgende")
-console.log(btnVolgende)
 btnVolgende.addEventListener("click",getGameInformation)
+
+
+const btnStartSpel= document.getElementById("startSpel")
+btnStartSpel.addEventListener("click",getPlayers)
+
 
 
 //setElementVisibility("page1", "page2")

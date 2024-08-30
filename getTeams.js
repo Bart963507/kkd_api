@@ -1,9 +1,11 @@
 
-function getTeams(url){
-  const request = new Request(url)
-  fetch(request)
-    .then((response) => response.json())
-    .then((json) => { 
+function getTeams(url) {
+  const request = new Request(url);
+
+  return fetch(request)
+    .then(response => response.json())
+    .then(json => {
+      // Process the JSON data
       const objectsArray = json.matches.flatMap(match => [
         {
           teamName: match.awayContestant.contestantClubName,
@@ -14,7 +16,11 @@ function getTeams(url){
           teamLogo: match.homeContestant.contestantLogo,
         }
       ]);
-      
-      console.log(objectsArray);
-
-      })}
+      return objectsArray;
+    })
+    .catch(error => {
+      // Handle any errors
+      console.error('Error fetching teams:', error);
+      return []; // Return an empty array or handle the error as needed
+    });
+}

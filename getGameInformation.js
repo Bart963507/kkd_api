@@ -1,18 +1,30 @@
-
+function validateInput(input){
+    let isValid = false
+    if (/^\d+$/.test(input.value)) {
+        isValid = true}
+    else{
+        input.innerHTML = "Vul een geldige waarde in"
+    }
+}
 
 function getFormData(){
     const formGame = document.getElementById("formGame")
     const gameData = new FormData(formGame)
     const playerCount = gameData.get("playerCount")
     const teamCount = gameData.get("teamCount")
-    return parseInt(playerCount)
-}
+    return(
+        {
+            "playerCount":playerCount,
+            "teamCount": teamCount
+        }
+        )
+    }
+
 
 
 function setElementVisibility(currentEleID, targetEleID){
 
     const currentEle = document.getElementById(currentEleID)
-    console.log(currentEle)
     currentEle.style.display = "none"
 
     const targetEle = document.getElementById(targetEleID)
@@ -26,7 +38,7 @@ function getGameInformation(){
 
     setElementVisibility("page1", "page2")
 
-    let playerCounter = getFormData()
+    let playerCounter = getFormData().playerCount
     const formPlayers = document.getElementById("formPlayers")
     while ( playerCounter > 0 ){
 
