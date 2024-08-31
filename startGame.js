@@ -1,16 +1,17 @@
 function getPlayers(){
-        // Get 
+        // Get variables
         const formGame = document.getElementById("formPlayers")
         const playerData = new FormData(formGame)
         const tablePlayers = document.getElementById("playerTable");
         let playerCount = getFormData().playerCount
-        //const playingTeams = 
+        
+        // Get teams and then do everything with it
         getTeams("https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/current-round")
   .then(teams => {
-    console.log('Teams:', teams);
-  
-        //getTeams("https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/current-round")
-        const assignedTeams = []
+
+
+        // Add an "assigned field to keep track of which team is already assigned"
+    teams.forEach(team => team.assigned = false);
         // Add a row for each player
         playerData.forEach(player => {
             row = tablePlayers.insertRow(0)
@@ -58,7 +59,10 @@ function getPlayers(){
 
 
 function getRandomTeam(teamsObject){
+    teamsObject = teamsObject.filter(team => team.assigned === false)
+    console.log(teamsObject)
     const randomTeam = teamsObject[getRandomInt(teamsObject.length, 0)]
+    randomTeam.assigned = true
     return randomTeam
 }
 
