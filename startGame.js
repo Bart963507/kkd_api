@@ -9,6 +9,12 @@ function getPlayers(){
         getTeams("https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/current-round")
   .then(teams => {
 
+        //Here a json should be made to store the teams for each player
+        //And more information of the teams combined like the scores.
+        
+
+
+
 
         // Add an "assigned field to keep track of which team is already assigned"
     teams.forEach(team => team.assigned = false);

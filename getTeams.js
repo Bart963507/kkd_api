@@ -17,10 +17,13 @@ function getTeams(url) {
         {
           teamName: match.awayContestant.contestantClubName,
           teamLogo: match.awayContestant.contestantLogo,
+          teamGoals: match.scores?.away || 0  //it gives an error if there is a 0. So add ternary to check for 0
         },
         {
           teamName: match.homeContestant.contestantClubName,
           teamLogo: match.homeContestant.contestantLogo,
+          teamGoals: match.scores?.home || 0
+          
         }
       ]);
       return objectsArray;
