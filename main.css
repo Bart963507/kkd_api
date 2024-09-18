@@ -103,3 +103,11 @@ h1 {
   text-align: center;
   color: #333;
 }
+
+.playerCell{
+  border-right-style: solid;
+}
+
+.goalCell{
+  border-left-style: solid;
+}
