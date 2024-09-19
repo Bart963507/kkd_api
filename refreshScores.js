@@ -6,9 +6,14 @@ function refreshScores(){
   .then(teams => {
     // match teams and currentinformation
     currentInformation.forEach(player => {
-        const teams = player.teams.map(t => t.teamName)
-        console.log(teams)
+        const assignedTeams = player.teams.map(t => t.teamName)
+        const teamGoals = teams.filter(t => assignedTeams.indexOf(t.teamName)!== -1).map(t => t.teamGoals).reduce((partialSum, a) => partialSum + a, 0)
+        player["totalGoals"] = teamGoals + 1
+        
     })
 
+    // match the goalcells with the correct player
+    const goalCells = document.getElementsByClassName("goalCell")
+    console.log(goalCells[0].parentElement.firstChild.outerText)
   })
 }
