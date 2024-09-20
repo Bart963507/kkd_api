@@ -60,4 +60,12 @@ function createTable(data){
     const headerCell = headerRow.insertCell(0)
     headerCell.innerHTML = "Speler"
 
-    setElementVisibility("page2", "page3")}
+    
+
+    setElementVisibility("page2", "page3")
+
+    //Set the width of the container around the table
+    const tableWidth = tablePlayers.getBoundingClientRect().width
+    const formContainer = document.getElementById('page3')
+    formContainer.style.width = `${tableWidth + (tableWidth*1,1)}px`
+}

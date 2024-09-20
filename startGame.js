@@ -59,7 +59,6 @@ function getPlayers(){
 
 function getRandomTeam(teamsObject){
     teamsObject = teamsObject.filter(team => team.assigned === false)
-    console.log(teamsObject)
     const randomTeam = teamsObject[getRandomInt(0,teamsObject.length - 1)]
     randomTeam.assigned = true
     return randomTeam
@@ -69,7 +68,6 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     const result = Math.floor(Math.random() * (max - min + 1));
-    console.log(result)
     return result
 }
 
