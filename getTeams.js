@@ -10,8 +10,13 @@ function getTeams(url) {
       const month = String(rawDate.getMonth() + 1)
       const day = String(rawDate.getDate())
       const today = `${year}-${month.padStart(2,"0")}-${day.padStart(2,"0")}`
-      json = json.matches
-      //json = json.matches.filter(match => match.date === today)
+      
+      
+      
+      
+      if (debug){json = json.matches}
+      else{json = json.matches.filter(match => match.date === today)}
+      //
       // Process the JSON data
       const objectsArray = json.flatMap(match => [
         {

@@ -4,6 +4,18 @@ function createTable(data){
     data.forEach(player => {
         row = tablePlayers.insertRow(0)
 
+        const cellBakken = row.insertCell(0)
+        const inputBakken = document.createElement("input")
+        Object.assign(inputBakken, {
+            type: "number",
+            id: `Speler${player["playerName"]}`,
+            name: `Speler${player["playerName"]}`,
+            value: 0
+        });
+        inputBakken.style.width = "100px"
+        cellBakken.appendChild(inputBakken)
+        
+
         const cellGoals = row.insertCell(0)
         cellGoals.innerHTML = player["totalGoals"]
         cellGoals.classList.add("goalCell")
@@ -21,12 +33,18 @@ function createTable(data){
         cellPlayerName.innerHTML = player["playerName"];
         cellPlayerName.classList.add("playerCell")
         playerCount--;
+
             })
 
 
+        
     // Add header
     const header = tablePlayers.createTHead()
     const headerRow = header.insertRow(0)
+    
+    // Add column for total Goals
+    const beerCell = headerRow.insertCell(0)
+    beerCell.innerHTML = "🍺"
         
     // Add column for total Goals
     const goalHeaderCell = headerRow.insertCell(0)

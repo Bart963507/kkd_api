@@ -4,9 +4,12 @@
 <title>KKD - vrijdag</title>
 <head>
     <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/x-icon" href="/fotos/favicon.ico">
+    <link rel="icon" type="image/png" href="/fotos/favicon.png">
 </head>
 
 <body>
+<script src = "config.js" defer></script>  
 <script src = "createTable.js" defer></script>  
 <script src = "refreshScores.js" defer></script>
 <script src ="getTeams.js" defer></script>
@@ -19,6 +22,7 @@
  <!-- Page 1: User Information Form -->
  <div class="container" id="page1">
     <h2>Spel informatie</h2>
+    <h2 id="teamNumber"></h2>
     <form id="formGame">
         <div class="form-group">
             <label for="playerCount">Aantal Spelers:</label>

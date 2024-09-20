@@ -4,10 +4,13 @@ function getPlayers(){
         const playerData = new FormData(formGame)
         let playerCount = getFormData().playerCount
         const infoArr = []
-        
+        let url = ""
         // Get teams and then do everything with it
-        //getTeams("https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/current-round")
-        getTeams("https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/round-schedule")
+
+        // For testing purposes debug option built-in
+        if (debug){ url ="https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/round-schedule"}
+        else{ url = "https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/current-round"}
+        getTeams(url)
   .then(teams => {
 
         // Add an "assigned field to keep track of which team is already assigned"
@@ -50,7 +53,7 @@ function getPlayers(){
       console.error('Error:', error);
     });
 
-    setInterval(refreshScores, 6000)
+    setInterval(refreshScores, 30000)
 }
 
 
