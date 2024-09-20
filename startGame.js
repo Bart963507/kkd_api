@@ -53,7 +53,7 @@ function getPlayers(){
       console.error('Error:', error);
     });
 
-    setInterval(refreshScores, 30000)
+    setInterval(refreshScores, refreshInterval)
 }
 
 
