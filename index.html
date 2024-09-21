@@ -17,31 +17,40 @@
 <script src ="script.js" defer></script>
 
 
+ <!-- Navigation -->
+<nav>
+    <ul class="nav-list">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./rules.html">Spelregels</a></li>
+      <li><a href="#">Stand</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
 
  <!-- Page 1: User Information Form -->
  <div class="container" id="page1">
     <h2>Spel informatie</h2>
     <h2 id="teamNumber"></h2>
-    <form id="formGame">
+    <form id="formGame" onsubmit="return getGameInformation(event)" novalidate>
         <div class="form-group">
             <label for="playerCount">Aantal Spelers:</label>
-            <input type="number" id="playerCount" name="playerCount" required>
+            <input type="number" id="playerCount" name="playerCount" min=1 required>
         </div>
         <div class="form-group">
             <label for="teamCount">Aantal Teams per Speler:</label>
-            <input type="number" id="teamCount" name="teamCount" required>
+            <input type="number" id="teamCount" name="teamCount" min=1 required>
         </div>
-        <button type="button" class="btn" id="Volgende">Volgende</button>
+        <button type="submit" class="btn" id="Volgende">Volgende</button>
     </form>
 </div>
-
+<!-- Page 2: Playernames Form -->
 <div class="container" id="page2" style="display: none;">
     <h2>Spelers informatie</h2>
     <form id="formPlayers">
         <button type="button" class="btn" id="startSpel">Start Spel</button>
     </form>
 </div>
-
+<!-- Page 3: Game Table -->
 <div class="container" id="page3" style="display: none;">
     <h1>Speloverzicht</h1>
     <table id="playerTable">

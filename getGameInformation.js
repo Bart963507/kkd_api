@@ -1,10 +1,14 @@
 function validateInput(input){
-    let isValid = false
-    if (/^\d+$/.test(input.value)) {
-        isValid = true}
-    else{
-        input.innerHTML = "Vul een geldige waarde in"
+    console.log(input)
+    const element = document.getElementById(input)
+    console.log(element)
+    const valid = element.validity.valid
+    if (!valid){
+        console.log(valid)
+        element.setCustomValidity("Vul een geldige waarde in")
     }
+    else{element.setCustomValidity("")}
+    element.reportValidity();
 }
 
 function getFormData(){
@@ -33,10 +37,16 @@ function setElementVisibility(currentEleID, targetEleID){
 
 }
 
-function getGameInformation(){
+function getGameInformation(event){
+    event.preventDefault(); // This should work without any issues.
 
+    const teamCountValid = document.getElementById("teamCount")
+    const playerCountValid = document.getElementById("playerCount")
+    validateInput("teamCount")
+    //console.log(validateInput(teamCountValid))
 
-    setElementVisibility("page1", "page2")
+    const playerCount = getFormData().playerCount.validity
+    const teamCount = getFormData().teamCount
 
     let playerCounter = getFormData().playerCount
     const formPlayers = document.getElementById("formPlayers")
@@ -68,6 +78,10 @@ function getGameInformation(){
         // Append the container to the form
         formPlayers.prepend(playerInputContainer);
 
-        playerCounter --;    
-}}
-
+        playerCounter --;
+        console.log(playerCounter)
+    }
+    console.log("validation succesful")
+    //setElementVisibility("page1", "page2")
+    return false
+}

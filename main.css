@@ -16,8 +16,6 @@ body {
 }
 
 
-  
-
 .container {
   background-color: white;
   padding: 30px;
@@ -25,6 +23,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 900px;
+  margin-top: 50px; /* Add some space to account for the ul at the top */
 }
 
 h2 {
@@ -108,3 +107,49 @@ h1 {
   border-left-style: solid;
   
 }
+
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #e2002b;
+  overflow: hidden;
+  position: absolute;
+  top: 0; /* Stick the ul to the top */
+  left: 0;
+  display: flex;
+}
+
+.nav-list{
+  float: left
+}
+
+.nav-list a {
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  background-color: #aa0523;
+  color: white;
+}
+
+
+.vertical-list {
+  list-style-type: decimal; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  width: 200px;
+}
+
+.vertical-list li {
+  padding: 10px;
+  margin-bottom: 5px;
+  text-align: left;
+  
+}
+

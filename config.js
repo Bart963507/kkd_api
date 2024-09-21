@@ -1,2 +1,2 @@
 const debug = false;
-const refreshInterval = 30000
+const refreshInterval = 300000
