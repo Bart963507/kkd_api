@@ -1,26 +1,9 @@
-function validateInput(input){
-    const element = document.getElementById(input)
-    element.setCustomValidity("")
-    const valid = element.validity.valid
-    if (!valid){
-        console.log(`${input} invalid`)
-        element.setCustomValidity("Vul een geldige waarde in")
-        element.reportValidity();
-    }
-    else{
-        console.log(`${input} valid`)
-    } 
-    return valid
-}
-
-
 function checkTotal(){
     const teamCount =  getFormData().teamCount
     const playerCount =  getFormData().playerCount
     const teamsNeeded = teamCount * playerCount
     const playingTeamsCount = parseInt(localStorage["teamCount"])
     const errorMessage = document.getElementById('errorMessage')
-    console.log(teamsNeeded)
     if (teamsNeeded > playingTeamsCount){
         errorMessage.textContent = `Er spelen ${playingTeamsCount} teams vandaag. Pas het aantal spelers of het aantal teams per speler aan.`;
         return false
@@ -29,7 +12,6 @@ function checkTotal(){
         errorMessage.textContent = ""
         return true
     }
-
 }
 
 function getFormData(){
@@ -44,19 +26,6 @@ function getFormData(){
         }
         )
     }
-
-
-
-function setElementVisibility(currentEleID, targetEleID){
-
-    const currentEle = document.getElementById(currentEleID)
-    currentEle.style.display = "none"
-
-    const targetEle = document.getElementById(targetEleID)
-    targetEle.style.display = "block"
-
-
-}
 
 function getGameInformation(event){
     event.preventDefault(); 
@@ -88,7 +57,8 @@ function getGameInformation(event){
         Object.assign(input, {
             type: "text",
             id: `Speler${playerCounter}`,
-            name: `Speler${playerCounter}`
+            name: `Speler${playerCounter}`,
+            required: true
         });
 
         // Append label and input to the container
