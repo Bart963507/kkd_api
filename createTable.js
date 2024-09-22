@@ -42,15 +42,16 @@ function createTable(data){
     const header = tablePlayers.createTHead()
     const headerRow = header.insertRow(0)
     
-    // Add column for total Goals
+    // Add column for beer
     const beerCell = headerRow.insertCell(0)
     beerCell.innerHTML = "🍺"
         
     // Add column for total Goals
     const goalHeaderCell = headerRow.insertCell(0)
     goalHeaderCell.innerHTML = "Goals"
+
     // Add columns for amount of teams selected
-    let teamCount = getFormData().teamCount
+    let teamCount = data[0].teams.length
     while ( teamCount > 0 ){
         const headerCell = headerRow.insertCell(0)
         headerCell.innerHTML = "Team"

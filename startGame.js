@@ -1,17 +1,28 @@
-function getPlayers(){
+function getPlayers(event){
+        event.preventDefault(); 
         // Get variables
         const formGame = document.getElementById("formPlayers")
         const playerData = new FormData(formGame)
         let playerCount = getFormData().playerCount
         const infoArr = []
         let url = ""
-        // Get teams and then do everything with it
 
         // For testing purposes debug option built-in
         if (debug){ url ="https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/round-schedule"}
         else{ url = "https://api.keukenkampioendivisie.nl/wp-json/statsperform/v1/current-round"}
-        getTeams(url)
-  .then(teams => {
+
+        
+        validArr = []
+        // Check validity for every input in the form
+        for (let [name, value] of playerData.entries()) {
+            const validInput = validateInput(name)
+            validArr.push(validInput)
+            }
+        if (validArr.indexOf(false) === -1) {
+
+        
+        // Get teams and then do everything with it
+        getTeams(url).then(teams => {
 
         // Add an "assigned field to keep track of which team is already assigned"
         teams.forEach(team => team.assigned = false);
@@ -55,7 +66,7 @@ function getPlayers(){
 
     setInterval(refreshScores, refreshInterval)
 }
-
+}
 
 function getRandomTeam(teamsObject){
     teamsObject = teamsObject.filter(team => team.assigned === false)
@@ -71,5 +82,14 @@ function getRandomInt(min, max) {
     return result
 }
 
+function loadGame(json){
+    setElementVisibility("page0", "page3")
+    createTable(json)
+}
+
+function newGame(){
+    setElementVisibility("page0", "page1")
+    displayMatches()
+}
 
 

@@ -153,3 +153,15 @@ h1 {
   
 }
 
+.button-container {
+  display: flex;
+  gap: 10px; /* Optional: to control spacing between buttons */
+}
+
+
+.center {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+}
+
