@@ -1,14 +1,35 @@
 function validateInput(input){
-    console.log(input)
     const element = document.getElementById(input)
-    console.log(element)
+    element.setCustomValidity("")
     const valid = element.validity.valid
     if (!valid){
-        console.log(valid)
+        console.log(`${input} invalid`)
         element.setCustomValidity("Vul een geldige waarde in")
+        element.reportValidity();
     }
-    else{element.setCustomValidity("")}
-    element.reportValidity();
+    else{
+        console.log(`${input} valid`)
+    } 
+    return valid
+}
+
+
+function checkTotal(){
+    const teamCount =  getFormData().teamCount
+    const playerCount =  getFormData().playerCount
+    const teamsNeeded = teamCount * playerCount
+    const playingTeamsCount = parseInt(localStorage["teamCount"])
+    const errorMessage = document.getElementById('errorMessage')
+    console.log(teamsNeeded)
+    if (teamsNeeded > playingTeamsCount){
+        errorMessage.textContent = `Er spelen ${playingTeamsCount} teams vandaag. Pas het aantal spelers of het aantal teams per speler aan.`;
+        return false
+    }
+    else{
+        errorMessage.textContent = ""
+        return true
+    }
+
 }
 
 function getFormData(){
@@ -38,19 +59,17 @@ function setElementVisibility(currentEleID, targetEleID){
 }
 
 function getGameInformation(event){
-    event.preventDefault(); // This should work without any issues.
+    event.preventDefault(); 
 
-    const teamCountValid = document.getElementById("teamCount")
-    const playerCountValid = document.getElementById("playerCount")
-    validateInput("teamCount")
-    //console.log(validateInput(teamCountValid))
+    const playerValid = validateInput("playerCount")
+    const teamValid = validateInput("teamCount")
 
-    const playerCount = getFormData().playerCount.validity
-    const teamCount = getFormData().teamCount
+    const totalValid = checkTotal()
 
-    let playerCounter = getFormData().playerCount
-    const formPlayers = document.getElementById("formPlayers")
-    while ( playerCounter > 0 ){
+    if (playerValid & teamValid & totalValid){
+        let playerCounter = getFormData().playerCount
+        const formPlayers = document.getElementById("formPlayers")
+        while ( playerCounter > 0 ){
 
         // Create a div to wrap each input field
         const playerInputContainer = document.createElement("div");
@@ -79,9 +98,9 @@ function getGameInformation(event){
         formPlayers.prepend(playerInputContainer);
 
         playerCounter --;
-        console.log(playerCounter)
     }
-    console.log("validation succesful")
-    //setElementVisibility("page1", "page2")
+    setElementVisibility("page1", "page2")
+    return true
+    }
     return false
 }
