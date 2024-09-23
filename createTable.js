@@ -4,7 +4,7 @@ function createTable(data){
         if (event.target.tagName === "INPUT" && event.target.type === "number") {
             const playerNameBeer = event.target.closest("tr").cells[0].innerHTML
             playerObjectBeer = data.find(p => p.playerName === playerNameBeer)
-            playerObjectBeer["beers"]++
+            playerObjectBeer["beers"] = event.target.value
             localStorage.setItem("gameInformation",JSON.stringify(data))
         }
     });
