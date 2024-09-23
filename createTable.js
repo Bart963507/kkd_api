@@ -1,5 +1,13 @@
 function createTable(data){
     const tablePlayers = document.getElementById("playerTable");
+    tablePlayers.addEventListener("input", (event) => {
+        if (event.target.tagName === "INPUT" && event.target.type === "number") {
+            const playerNameBeer = event.target.closest("tr").cells[0].innerHTML
+            playerObjectBeer = data.find(p => p.playerName === playerNameBeer)
+            playerObjectBeer["beers"]++
+            localStorage.setItem("gameInformation",JSON.stringify(data))
+        }
+    });
     // Here the table is filled with the information from the json created
     data.forEach(player => {
         row = tablePlayers.insertRow(0)
@@ -10,12 +18,11 @@ function createTable(data){
             type: "number",
             id: `Speler${player["playerName"]}`,
             name: `Speler${player["playerName"]}`,
-            value: 0
+            value: player["beers"],
         });
         inputBakken.style.width = "100px"
-        cellBakken.appendChild(inputBakken)
         
-
+        cellBakken.appendChild(inputBakken)
         const cellGoals = row.insertCell(0)
         cellGoals.innerHTML = player["totalGoals"]
         cellGoals.classList.add("goalCell")

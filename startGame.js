@@ -46,7 +46,8 @@ function getPlayers(event){
             const playerInfo = {
                 "playerName":player,
                 "teams":teamsArr,
-                "totalGoals": teamsArr.map(t => t.teamGoals).reduce((partialSum, a) => partialSum + a, 0)
+                "totalGoals": teamsArr.map(t => t.teamGoals).reduce((partialSum, a) => partialSum + a, 0),
+                "beers":0
         }
             playerCount--;
             infoArr.push(playerInfo)

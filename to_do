@@ -1,7 +1,8 @@
 DONE - form validation on playernames
 DONE - ability to start already existing game
-- Make sure beers are saved
-- Make sure beers are loaded correctly
+DONE - Make sure beers are saved
+DONE - Make sure beers are loaded correctly
 - Add rules
 - Add introduction tekst
+- Refactor adding beers
 
