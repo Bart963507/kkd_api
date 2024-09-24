@@ -89,8 +89,8 @@ function loadGame(json){
 }
 
 function newGame(){
-    setElementVisibility("page0", "page1")
     displayMatches()
+    setElementVisibility("page0", "page1")
 }
 
 
