@@ -3,7 +3,8 @@ DONE - ability to start already existing game
 DONE - Make sure beers are saved
 DONE - Make sure beers are loaded correctly
 DONE - Fix bug in adding beers. You can only add beers now
+DONE - Disable screen when 0 matches
 - Add rules
 - Add introduction tekst
 - Refactor adding beers
-
+- Add ability to select matches at certain time
