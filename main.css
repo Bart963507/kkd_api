@@ -17,13 +17,13 @@ body {
 
 
 .container {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9); /* Transparent background */
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 900px;
-  margin-top: 50px; /* Add some space to account for the ul at the top */
+  margin-top: 50px;
 }
 
 h2 {
@@ -59,6 +59,10 @@ textarea {
   resize: vertical;
 }
 
+
+
+
+
 .btn {
   width: 100%;
   padding: 10px;
@@ -66,13 +70,16 @@ textarea {
   border-radius: 4px;
   background-color: #e2002b;
   color: white;
+  padding: 12px 20px;
   font-size: 16px;
-  cursor: pointer;
+  border-radius: 4px;
   margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
   background-color: #aa0523;
+  transform: translateY(-2px); /* Subtle lift effect */
 }
 
 table {
@@ -140,18 +147,27 @@ h1 {
 
 
 .vertical-list {
-  list-style-type: decimal; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margin */
-  width: 200px;
+  list-style-type: decimal;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .vertical-list li {
-  padding: 10px;
-  margin-bottom: 5px;
-  text-align: left;
-  
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-left: 5px solid #e2002b;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
 }
+
+.vertical-list li:hover {
+  background-color: #f1f1f1; /* Subtle hover effect */
+}
+
 
 .button-container {
   display: flex;
@@ -165,3 +181,14 @@ h1 {
   align-items: center; /* Centers vertically */
 }
 
+@media (max-width: 768px) {
+  .container {
+    width: 95%; /* Slightly wider for smaller screens */
+    padding: 20px;
+  }
+
+  .vertical-list li {
+    font-size: 16px; /* Adjust text size on mobile */
+    padding: 10px;
+  }
+}
