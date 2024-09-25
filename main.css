@@ -117,6 +117,7 @@ h1 {
 
 
 .nav-list {
+  display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -124,30 +125,39 @@ h1 {
   background-color: #e2002b;
   overflow: hidden;
   position: absolute;
-  top: 0; /* Stick the ul to the top */
+  top: 0;
   left: 0;
-  display: flex;
-}
-
-.nav-list{
-  float: left
+  align-items: center; /* Vertically centers the buttons */
+  align-items: stretch;
 }
 
 .nav-list a {
-  display: block;
+  display: flex;
+  padding: 0 20px;
   color: white;
-  padding: 14px 16px;
+  font-size: 16px;
   text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  height: 100%;
+  align-items: center; /* Vertically center the text */
+  justify-content: center; /* Horizontally center the text */
 }
 
 .nav-list a:hover {
   background-color: #aa0523;
-  color: white;
+  color: #fff;
+  font-weight: bold; /* Make it more prominent */
+}
+
+.nav-list a.active {
+  background-color: #fff;
+  color: #e2002b;
+  border-bottom: 3px solid #e2002b; /* Highlight the active link */
 }
 
 
 .vertical-list {
-  list-style-type: decimal;
+  list-style-type: none;
   padding: 0;
   margin: 0;
   background-color: #fff;

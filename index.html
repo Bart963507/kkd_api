@@ -23,9 +23,12 @@
  <!-- Navigation -->
 <nav>
     <ul class="nav-list">
+      <img src="https://api.keukenkampioendivisie.nl/wp-content/themes/kkd-headless/logo.png" width="60" height="60">
       <li><a href="./index.html">Home</a></li>
       <li><a href="./rules.html">Spelregels</a></li>
+      <li><a href="#">Uitleg</a></li>
       <li><a href="#">Stand</a></li>
+      <li><a href="#">Programma</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
 </nav>
@@ -36,7 +39,12 @@
     <h2>Welkom</h2>
     <img src="https://api.keukenkampioendivisie.nl/wp-content/themes/kkd-headless/logo.png" width="100" height="100">
     </div>
-    <p></p>
+    <p><p>Welkom bij het KKD-vrijdag spel. Je hebt twee opties om te beginnen:</p>
+    <ul>
+        <li><strong>Nieuw Spel:</strong> Start een gloednieuw avontuur! Kies deze optie om een nieuw spel te creëren</li>
+        <li><strong>Bestaand Spel:</strong> Laad je meest recente gespeelde spel en ga verder waar je bent gebleven. </li>
+    </ul>
+    <p>Kies je optie en laten we beginnen met het spel! Veel plezier en succes!</p>
     <div class="button-container">
     <button type="button" class="btn" id="Nieuw" onclick="newGame()">Nieuw Spel</button>
     <button type="button" class="btn" id="Bestaand" style="display: none;"  onclick= "loadGame(JSON.parse(existingGame))">Bestaand Spel</button>
