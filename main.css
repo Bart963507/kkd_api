@@ -202,3 +202,10 @@ h1 {
     padding: 10px;
   }
 }
+
+#wheelCanvas {
+  border: 2px solid black;
+}
+#spinButton {
+  margin-top: 20px;
+}
